@@ -1,5 +1,5 @@
-require_relative '../Chess.rb'
+require_relative '../lib/Chess.rb'
 
 describe Chess do
-  
+
 end
