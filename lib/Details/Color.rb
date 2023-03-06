@@ -9,7 +9,7 @@ module ColorableString
   refine String do
     def bg_color(color_name)
       rgb_val = RGB_COLOR_MAP[color_name]
-      "\e[38;2;#{rgb_val}m#{self}\e[0m".rjust(2)
+      "\e[48;2;#{rgb_val}m#{self}\e[0m".rjust(2)
     end
   end
 end
