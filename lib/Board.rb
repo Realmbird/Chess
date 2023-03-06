@@ -20,9 +20,9 @@ class Board
       colored_row = row.map.with_index do |element, e_index|
         color_index = index + e_index
         if color_index.even?
-          element.to_s.bg_color(:green)
+          element.to_s.ljust(5).bg_color(:green)
         else
-          element.to_s.bg_color(:cyan)
+          element.to_s.ljust(5).bg_color(:cyan)
         end
       end
       puts "#{8 - index} #{colored_row.join} #{8 - index}"
