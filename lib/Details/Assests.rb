@@ -1,4 +1,4 @@
-module Assets 
+module Assets
   def  white_king
     "\u2654"
   end
@@ -46,4 +46,17 @@ module Assets
   def black_pawn
     "\u265F"
   end
+
+  def blank_circle
+    "\u25cb"
+  end
+
+  def white_circle
+    "\u26AA"
+  end
+
+  def black_circle
+    "\u26AB"
+  end
 end
+
