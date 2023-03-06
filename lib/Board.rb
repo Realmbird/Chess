@@ -28,7 +28,7 @@ class Board
     end
   end
   def converter(input)
-    letter = letter_index(input[0])
+    letter = input[0]
     number = input[1]
     chess_row = 8 - number.to_i
     chess_col = letter_index(letter)
