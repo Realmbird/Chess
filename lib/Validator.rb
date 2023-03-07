@@ -16,7 +16,7 @@ module Validator
 
   # checks if row and col is not nil and if something is obstructed
   def isValid?(row, col)
-    if @Board[row].nil? || @Board[row][col].nil? || @Board[row][col] != ' '
+    if @Board[row].nil? || @Board[row][col].nil? || row.negative? || col.negative? || @Board[row][col] != ' '
       false
     else
       true
@@ -24,7 +24,7 @@ module Validator
   end
   # checks if row and col is not nil
   def valid?(row, col)
-    if @Board[row].nil? || @Board[row][col].nil? || @Board[row][col] != ' '
+    if @Board[row].nil? || @Board[row][col].nil? || row.negative? || col.negative? || @Board[row][col] != ' '
       false
     else
       true
