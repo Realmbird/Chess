@@ -31,7 +31,7 @@ module Validator
     end
   end
   def pawn_attack?(row,col)
-    if valid?
+    if valid?(row,col)
       if @Board[row][col] != ' '
         true
       else

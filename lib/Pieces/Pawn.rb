@@ -29,8 +29,7 @@ class Pawn < Piece
     possible_moves = []
     
     possible_attacks = [[row - 1,col + 1], [row - 1, col - 1]]
-    possible_attacks.filter{|attack| attack.pawn_attack?(attack[0], attack[1])}
-    possible_attacks
+    possible_attacks.filter{|attack| pawn_attack?(attack[0], attack[1])}
   end
 
   def black_attack(position)
@@ -38,7 +37,6 @@ class Pawn < Piece
     col = position[1]
     possible_moves = []
     possible_attacks = [[row + 1, col + 1], [row + 1, col - 1]]
-    possible_attacks.filter{|attack| attack.pawn_attack?(attack[0], attack[1])}
-    possible_attacks
+    possible_attacks.filter{|attack| pawn_attack?(attack[0], attack[1])}
   end
 end
