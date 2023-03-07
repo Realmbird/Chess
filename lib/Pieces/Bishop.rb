@@ -1,35 +1,33 @@
 require_relative './Piece'
-require_relative './Validator'
 class Bishop < Piece
-  include Validator
-  def bishop_moves(position)
+  def bishop_moves(current_position)
     # y row
-    y = position[0]
+    y = current_position[0]
     # x col
-    x = position[1]
+    x = current_position[1]
     possible_moves = []
 
     # upper right
-    for i in (0..8)
-      break unless isValid?(y+i, x+i)
+    for i in (0..7)
       possible_moves.push([y+i, x+i])
+      break unless isValid?(y+i, x+i)
     end
 
     # up left
-    for i in (0..8)
-      break unless isValid?(y-i, x+i)
+    for i in (0..7)
       possible_moves.push([y-i, x+i])
+      break unless isValid?(y-i, x+i)
     end
 
     # down left
-    for i in (0..8)
-      break unless isValid?(y-i, x-i)
+    for i in (0..7)
       possible_moves.push([y-i, x-i])
+      break unless isValid?(y-i, x-i)
     end
     # down right
-    for i in (0..8)
-      break unless isValid?(y+i, x-i)
+    for i in (0..7)
       possible_moves.push([y+i, x-i])
+      break unless isValid?(y+i, x-i)
     end
     possible_moves
   end

@@ -10,7 +10,7 @@ describe Board do
       expect(validator.valid?(0,8)).to eq(false)
     end
     it 'returns true when row and column is valid' do
-      expect(validator.valid?(0,0)).to eq(true)
+      expect(validator.valid?(4,4)).to eq(true)
     end
   end
   describe 'letter index' do

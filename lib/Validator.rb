@@ -14,9 +14,17 @@ module Validator
     letter.downcase.ord - 'a'.ord
   end
 
-  # checks if row and col is valid
+  # checks if row and col is not nil and if something is obstructed
+  def isValid?(row, col)
+    if @Board[row].nil? || @Board[row][col].nil? || @Board[row][col] != ' '
+      false
+    else
+      true
+    end
+  end
+  # checks if row and col is not nil
   def valid?(row, col)
-    if @Board[row].nil? || @Board[row][col].nil?
+    if @Board[row].nil? || @Board[row][col].nil? || @Board[row][col] != ' '
       false
     else
       true
