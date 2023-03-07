@@ -4,13 +4,13 @@ describe Board do
   describe "#isValid" do
     subject(:validator){ described_class.new()}
     it 'returns false when column is false' do
-      expect(validator.isValid(8,8)).to eq(false)
+      expect(validator.valid?(8,8)).to eq(false)
     end
     it 'return false when row is false' do
-      expect(validator.isValid(0,8)).to eq(false)
+      expect(validator.valid?(0,8)).to eq(false)
     end
     it 'returns true when row and column is valid' do
-      expect(validator.isValid(0,0)).to eq(true)
+      expect(validator.valid?(0,0)).to eq(true)
     end
   end
   describe 'letter index' do

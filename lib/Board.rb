@@ -1,8 +1,10 @@
 require_relative './Details/Color'
 require_relative './Details/Assests'
+require_relative './Validator'
 class Board 
   include ColorableString
   include Assets
+  include Validator
   attr_accessor :Board, :Win
   def initialize
     @Board = [
@@ -13,38 +15,19 @@ class Board
     @Win = false
   end
 
-  def printBoard
+  def print_board
     puts '  abcdefgh '
     @Board.each_with_index do |row, index|
       colored_row = row.map.with_index do |element, e_index|
         color_index = index + e_index
-        if color_index.even?
-          element.to_s.ljust(5).bg_color(:green)
-        else
-          element.to_s.ljust(5).bg_color(:cyan)
-        end
+        color_index.even? ?  element.to_s.ljust(5).bg_color(:green) : element.to_s.ljust(5).bg_color(:cyan)
       end
       puts "#{8 - index} #{colored_row.join} #{8 - index}"
     end
   end
-  def converter(input)
-    letter = input[0]
-    number = input[1]
-    chess_row = 8 - number.to_i
-    chess_col = letter_index(letter)
-    [chess_row, chess_col]
-  end
-  def letter_index(letter)
-    letter.downcase.ord - 'a'.ord
-  end
-  def isValid(row, col)
-    if @Board[row].nil? || @Board[row][col].nil?
-      false
-    else
-      true
-    end
-  end
-  def isAdded()
+
+  # gonna move piece
+  def move_piece()
 
   end
 end
