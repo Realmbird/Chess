@@ -1,5 +1,47 @@
 require_relative './Piece'
 class Rook  < Piece
+  def display_rook_moves(position)
+    # y
+    row = position[0]
+    # x
+    col = position[1]
+    possible_moves = []
+
+    # left
+    for x in (1..7)
+      left = col - x
+      break unless isValid?(row,left)
+
+      possible_moves.push([row,left])
+      
+    end
+
+    # right
+    for x in (1..7)
+      right = col + x
+      break unless isValid?(row,right)
+
+      possible_moves.push([row,right])
+    end
+    # up
+    for y in (1..7)
+      up = row - y
+      # out of bounds
+      break unless isValid?(up,col)
+
+      possible_moves.push([up,col])
+      # checks if piece is blocking
+    end
+    # down
+    for y in (1..7)
+      down = row + y
+      # out of bounds
+      break unless isValid?(down,col) 
+
+      possible_moves.push([down,col])
+    end
+    possible_moves
+  end
   def rook_moves(position)
     # y
     row = position[0]

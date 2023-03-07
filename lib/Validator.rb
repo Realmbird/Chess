@@ -24,10 +24,19 @@ module Validator
   end
   # checks if row and col is not nil
   def valid?(row, col)
-    if @Board[row].nil? || @Board[row][col].nil? || row.negative? || col.negative? || @Board[row][col] != ' '
+    if @Board[row].nil? || @Board[row][col].nil? || row.negative? || col.negative?
       false
     else
       true
+    end
+  end
+  def pawn_attack?(row,col)
+    if valid?
+      if @Board[row][col] != ' '
+        true
+      else
+        false
+      end
     end
   end
 end
