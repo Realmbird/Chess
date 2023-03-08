@@ -1,8 +1,9 @@
 require_relative './Details/Color'
 require_relative './Details/Assests'
 require_relative './Validator'
+require_relative './Generate'
 class Board 
-  include ColorableString
+  using ColorableString
   include Assets
   include Validator
   attr_accessor :Board, :Win
@@ -16,7 +17,7 @@ class Board
   end
 
   def print_board
-    puts '  abcdefgh '
+    puts '    a    b    c    d    e    f    g    h    '
     @Board.each_with_index do |row, index|
       colored_row = row.map.with_index do |element, e_index|
         color_index = index + e_index
@@ -25,9 +26,7 @@ class Board
       puts "#{8 - index} #{colored_row.join} #{8 - index}"
     end
   end
-
-  # gonna move piece
-  def move_piece()
+  def generate_moves
 
   end
 end

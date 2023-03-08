@@ -1,5 +1,4 @@
 module Validator
-
   # converts string into row and col
   def converter(input)
     letter = input[0]

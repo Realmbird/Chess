@@ -58,5 +58,35 @@ module Assets
   def black_circle
     "\u26AB"
   end
+  def piece_name(sprite)
+    case sprite
+    when white_pawn
+      'white pawn'
+    when black_pawn
+      'black pawn'
+    when white_king
+      'white king'
+    when black_king
+      'black king'
+    when white_rook
+      'white rook'
+    when black_rook
+      'black rook'
+    when white_bishop
+      'white bishop'
+    when black_bishop
+      'black bishop'
+    when white_knight
+      'white knight'
+    when black_knight
+      'black knight'
+    when white_queen
+      'white queen'
+    when black_queen
+      'black queen'
+    else
+      'error'
+    end
+  end
 end
 
