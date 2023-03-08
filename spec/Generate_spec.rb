@@ -1,5 +1,6 @@
 require_relative '../lib/Board'
 require_relative '../lib/Generate'
+Dir[File.join(__dir__, 'Pieces', '*.rb')].each { |file| require file }
 describe Board do
   
   subject(:default_board){ Board.new() }
