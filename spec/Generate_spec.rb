@@ -60,12 +60,12 @@ describe Board do
       end
       context 'has error input first' do
         before do
-          allow(move_selector).to receive(:puts).exactly(1).time
+          allow(move_selector).to receive(:puts).exactly(2).time
           allow(move_selector).to receive(:gets).and_return('b6', 'a8')
         end
         it 'recieves error' do
-          expect(move_selector).to receive(:detect_piece).with('error')
-          expect(move_selector).to receive(:detect_piece).with('black rook')
+          expect(move_selector).to receive(:detect_piece).with(2,1).and_return('error')
+          expect(move_selector).to receive(:detect_piece).with(0,0).and_return('black rook').twice()
           move_selector.select_piece
         end
       end
