@@ -1,6 +1,5 @@
 require_relative '../lib/Board'
 require_relative '../lib/Generate'
-Dir[File.join(__dir__, 'Pieces', '*.rb')].each { |file| require file }
 describe Board do
   
   subject(:default_board){ Board.new() }
@@ -71,5 +70,19 @@ describe Board do
         end
       end
     end
+
+    describe 'display possible moves' do
+      subject(:move_generator){ Generate.new(empty) }
+      context 'white rook' do
+        before do
+          allow(move_generator).to receive(:piece).and_return('white rook')
+        end
+        it 'returns empty array' do
+          expect(move_generator).to receive(:display_moves).and_return([])
+          move_generator.display_possible_mov
+        end
+      end
+    end
+
   end
 end
