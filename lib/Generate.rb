@@ -7,7 +7,7 @@ class Generate
   attr_accessor :position
   def initialize(board)
     @Board = board
-    @position = nil
+    @position = []
   end
   # gonna move piece
   def detect_piece(row,col)
@@ -19,10 +19,9 @@ class Generate
   def select_piece
     puts 'Enter location you wish to select chess Notation'
     location_input = gets.chomp
-    position = converter(location_input)
-    if detect_piece(position[0], position[1]) != 'error'
-      @position = position
-      detect_piece(position[0], position[1])
+    @position = converter(location_input)
+    if detect_piece(@position[0], @position[1]) != 'error'
+      detect_piece(@position[0], @position[1])
     else
       select_piece
     end
@@ -31,7 +30,7 @@ class Generate
   # makes generate_moves array
   def display_possible_moves()
     piece = select_piece
-    display_moves = nil
+    display_moves = []
     case piece
     when 'white rook'
       white_rook = Rook.new(@Board)
@@ -72,6 +71,6 @@ class Generate
     else
       'error'
     end
-    display_moves
+    [display_moves, piece, @position]
   end
 end

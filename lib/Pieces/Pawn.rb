@@ -12,7 +12,7 @@ class Pawn < Piece
     end
     # attacks
     attacks = white_attack(position)
-    possible_moves.push(attacks) if attacks != []
+    possible_moves.concat(attacks) if attacks != []
     possible_moves
   end
 
@@ -27,7 +27,7 @@ class Pawn < Piece
     end
     # attacks
     attacks = white_attack(position)
-    possible_moves.push(attacks) if attacks != []
+    possible_moves.concat(attacks) if attacks != []
     possible_moves.filter{|attack| isValid?(attack[0], attack[1])}
   end
   def display_black_moves(position)
@@ -41,7 +41,7 @@ class Pawn < Piece
     end
     # attack
     attacks = black_attack(position)
-    possible_moves.push(attacks) if attacks != []
+    possible_moves.concat(attacks) if attacks != []
     possible_moves.filter{|attack| isValid?(attack[0], attack[1])}
   end
   def black_moves(position)
@@ -55,7 +55,7 @@ class Pawn < Piece
     end
     # attack
     attacks = black_attack(position)
-    possible_moves.push(attacks) if attacks != []
+    possible_moves.concat(attacks) if attacks != []
     possible_moves
   end
 

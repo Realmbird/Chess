@@ -26,4 +26,7 @@ class Chess
     game_setup
     run_game
   end
+  def play 
+    @Chess_Board.generate_moves
+  end
 end
