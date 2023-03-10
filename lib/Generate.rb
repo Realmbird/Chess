@@ -4,6 +4,7 @@ Dir[File.join(__dir__, 'Pieces', '*.rb')].each { |file| require file }
 class Generate
   include Assets
   include Validator
+  attr_accessor :position
   def initialize(board)
     @Board = board
     @position = nil
@@ -36,6 +37,39 @@ class Generate
     when 'white rook'
       white_rook = Rook.new(@Board)
       display_moves = white_rook.display_rook_moves(@position)
+    when 'white bishop'
+      white_bishop = Bishop.new(@Board)
+      display_moves = white_bishop.display_bishop_moves(@position)
+    when 'white pawn'
+      white_pawn = Pawn.new(@Board)
+      display_moves = white_pawn.display_white_moves(@position)
+    when 'white_knight'
+      white_knight = Knight.new(@Board)
+      display_moves = white_knight.display_knight_moves(@position)
+    when 'white_king'
+      white_king = King.new(@Board)
+      display_moves = white_king.display_king_moves(@position)
+    when 'white_queen'
+      white_queen = Queen.new(@Board)
+      display_moves = white_queen.display_queen_moves(@position)
+    when 'black rook'
+      black = Rook.new(@Board)
+      display_moves = white_rook.display_rook_moves(@position)
+    when 'black bishop'
+      white_bishop = Bishop.new(@Board)
+      display_moves = white_bishop.display_bishop_moves(@position)
+    when 'black pawn'
+      white_pawn = Pawn.new(@Board)
+      display_moves = white_pawn.display_black_moves(@position)
+    when 'black_knight'
+      white_knight = Knight.new(@Board)
+      display_moves = white_knight.display_knight_moves(@position)
+    when 'black_king'
+      white_king = King.new(@Board)
+      display_moves = white_king.display_king_moves(@position)
+    when 'black_queen'
+      white_queen = Queen.new(@Board)
+      display_moves = white_queen.display_queen_moves(@position)
     else
       'error'
     end

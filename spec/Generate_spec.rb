@@ -75,11 +75,25 @@ describe Board do
       subject(:move_generator){ Generate.new(empty) }
       context 'white rook' do
         before do
-          allow(move_generator).to receive(:piece).and_return('white rook')
+          allow(move_generator).to receive(:select_piece).and_return('white rook')
         end
         it 'returns empty array' do
-          expect(move_generator).to receive(:display_moves).and_return([])
-          move_generator.display_possible_mov
+          search_position = [0,0]
+          # added because select_piece is skipped, changes position from nil
+          move_generator.position = search_position
+          expect(move_generator.display_possible_moves).to eq([])       
+        end
+      end
+
+      context 'white bishop' do
+        before do
+          allow(move_generator).to receive(:select_piece).and_return('white bishop')
+        end
+        it 'returns empty array' do
+          search_position = [4,4]
+          # added because select_piece is skipped, changes position from nil
+          move_generator.position = search_position
+          expect(move_generator.display_possible_moves).to contain_exactly([5,5],[3,3],[2,2],[5,3],[3,5],[2,6])
         end
       end
     end
