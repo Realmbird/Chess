@@ -23,7 +23,6 @@ class Generate
     if detect_piece(position[0], position[1]) != 'error'
       @position = position
       detect_piece(position[0], position[1])
-      
     else
       select_piece
     end
@@ -53,23 +52,23 @@ class Generate
       white_queen = Queen.new(@Board)
       display_moves = white_queen.display_queen_moves(@position)
     when 'black rook'
-      black = Rook.new(@Board)
-      display_moves = white_rook.display_rook_moves(@position)
+      black_rook = Rook.new(@Board)
+      display_moves = black_rook.display_rook_moves(@position)
     when 'black bishop'
-      white_bishop = Bishop.new(@Board)
-      display_moves = white_bishop.display_bishop_moves(@position)
+      black_bishop = Bishop.new(@Board)
+      display_moves = black_bishop.display_bishop_moves(@position)
     when 'black pawn'
-      white_pawn = Pawn.new(@Board)
-      display_moves = white_pawn.display_black_moves(@position)
+      black_pawn = Pawn.new(@Board)
+      display_moves = black_pawn.display_black_moves(@position)
     when 'black_knight'
-      white_knight = Knight.new(@Board)
-      display_moves = white_knight.display_knight_moves(@position)
+      black_knight = Knight.new(@Board)
+      display_moves = black_knight.display_knight_moves(@position)
     when 'black_king'
-      white_king = King.new(@Board)
-      display_moves = white_king.display_king_moves(@position)
+      black_king = King.new(@Board)
+      display_moves = black_king.display_king_moves(@position)
     when 'black_queen'
-      white_queen = Queen.new(@Board)
-      display_moves = white_queen.display_queen_moves(@position)
+      black_queen = Queen.new(@Board)
+      display_moves = black_queen.display_queen_moves(@position)
     else
       'error'
     end
